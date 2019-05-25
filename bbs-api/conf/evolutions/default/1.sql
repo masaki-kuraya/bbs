@@ -1,0 +1,27 @@
+# --- !Ups
+CREATE TABLE posts (
+  id VARCHAR(255) NOT NULL,
+  poster_id VARCHAR(255) NOT NULL,
+  comment VARCHAR(1024) NOT NULL,
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  modified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+CREATE TABLE users (
+  id VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE (email)
+);
+CREATE TABLE tokens (
+  token VARCHAR(255) NOT NULL,
+  user_id VARCHAR(255) NOT NULL,
+  PRIMARY KEY (token)
+);
+
+# --- !Downs
+DROP TABLE posts;
+DROP TABLE users;
+DROP TABLE tokens;

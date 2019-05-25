@@ -1,0 +1,9 @@
+server:
+  port: 80
+  error:
+    whitelabel:
+      enabled: true
+bbs:
+  api:
+    bbs-uri: http://localhost:8080
+    auth-uri: http://localhost:8080

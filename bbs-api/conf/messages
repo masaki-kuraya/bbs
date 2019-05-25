@@ -1,0 +1,14 @@
+# https://www.playframework.com/documentation/latest/ScalaI18N
+error.validation=リクエスト内容が不正です
+error.unauthorized=認証失敗しました
+error.badRequest=リクエストが不正です
+error.notFound=リソースが見つかりません
+error.methodNotAllowed=許可されていないメソッドです
+error.serverError=サーバー内部エラー
+error.unexpectedError=予期せぬエラー
+
+error.detail.validation.fieldNotExists=フィールドが存在しません
+error.detail.validation.expectedString=文字列を入力してください
+error.detail.validation.alreadyRegistered=既に登録済みです
+error.detail.validation.negativeNumber=正の整数を入力してください
+error.detail.unexpectedError=予期せぬエラー

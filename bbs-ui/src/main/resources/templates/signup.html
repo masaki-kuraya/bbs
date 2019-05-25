@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>[[#{signup.meta.title}]]</title>
+  <link rel="stylesheet" href="../static/styles/bootstrap.min.css" th:href="@{/styles/bootstrap.min.css}">
+  <link rel="stylesheet" href="../static/styles/common.css" th:href="@{/styles/common.css}">
+  <link rel="stylesheet" href="../static/styles/signup.css" th:href="@{/styles/signup.css}">
+</head>
+
+<body>
+  <form class="form-signup" th:action="@{/signup.html}" th:object="${signin}" method="POST" novalidate>
+    <h1 class="h3 mb-3 font-weight-normal text-center">[[#{signup.title}]]</h1>
+    <p class="mt-3 mb-5 text-center"><a href="signin.html">[[#{signup.link.signin}]]</a></p>
+    <div th:if="${registered}" class="alert alert-danger" role="alert">[[#{signin.message.error.registered}]]</div>
+    <div class="form-group">
+      <label for="email">[[#{signup.form.label.email}]]</label>
+      <input type="email" th:field="*{email}" class="form-control form-control-lg" th:placeholder="#{signup.form.placeholder.email}" autocomplete="email"
+        required>
+      <div class="invalid-feedback">
+        [[#{signup.validation.email}]]
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name">[[#{signup.form.label.name}]]</label>
+      <input type="text" th:field="*{name}" class="form-control" th:placeholder="#{signup.form.placeholder.name}" autocomplete="name" pattern="^[^\s].*[^\s]$" required>
+      <div class="invalid-feedback">
+        [[#{signup.validation.name}]]
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">[[#{signup.form.label.password}]]</label>
+      <input type="password" th:field="*{password}" class="form-control" required>
+      <div class="invalid-feedback">
+        [[#{signup.validation.password}]]
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg btn-block">[[#{signup.form.submit}]]</button>
+    <p class="mt-5 mb-3 text-muted text-center">[[#{common.copyright}]]</p>
+  </form>
+  <script>
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        var forms = document.getElementsByClassName('form-signup');
+        var validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+  <script src="../static/scripts/jquery-3.3.1.slim.min.js" th:src="@{/scripts/jquery-3.3.1.slim.min.js}"></script>
+  <script src="../static/scripts/popper.min.js" th:src="@{/scripts/popper.min.js}"></script>
+  <script src="../static/scripts/bootstrap.min.js" th:src="@{/scripts/bootstrap.min.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET     /auth                       auth.adapters.AuthController.getAuth
+POST    /users                      auth.adapters.AuthController.postUsers
+
+GET     /posts                      bbs.adapters.BbsController.getPosts(limit: Option[Long], offset: Option[Long])
+POST    /posts                      bbs.adapters.BbsController.postComment
